@@ -25,6 +25,7 @@ one more realoed to work. */
 self.addEventListener("activate", () => {
     console.log("activate");
     clients.claim();
+    //TODO ? clear cache : https://youtu.be/5f1M_cu2eDM?t=1550
     console.log("activated");
 });
 

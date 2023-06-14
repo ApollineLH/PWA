@@ -16,3 +16,6 @@ window.addEventListener('load', () => {
     }
     else console.warn("Service worker unavailable on this navigator.");
 });
+
+
+// TODO : actualisation au retour en ligne (https://youtu.be/5f1M_cu2eDM?t=2023)
