@@ -1,4 +1,4 @@
-//@Apolline LEHIRITTE
+//Apolline LEHIRITTE
 
 var cacheName = "offline-cache";
 
