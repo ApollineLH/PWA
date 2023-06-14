@@ -9,6 +9,7 @@ if ("serviceWorker" in navigator) {
         .then(function (registration) {
             console.log("Service Worker registered with scope:",
                 registration.scope);
+            registration.update();
         }).catch(function (err) {
             console.log("Service worker registration failed:", err);
         });
