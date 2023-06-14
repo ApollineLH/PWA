@@ -87,7 +87,8 @@ self.addEventListener("install", function (event) {
         })
     );
 });
-
+```
+```
 /**
 * Ce code enregistre un écouteur d'événements pour l'événement "fetch" sur le service worker.
 *Lorsqu'une requête réseau est effectuée, le service worker l'intercepte et essaie de récupérer
