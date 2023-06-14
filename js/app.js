@@ -6,11 +6,10 @@ property exists in the "navigator" object. If it does, it registers a service wo
 successful or not. */
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/service-worker.js")
-        .then(function (registration) {
-            console.log("Service Worker registered with scope:",
-                registration.scope);
+        .then(registration => {
+            console.log("Service Worker registered");
             registration.update();
-        }).catch(function (err) {
-            console.log("Service worker registration failed:", err);
-        });
+        })
+        .catch(err => console.warn("Service worker registration failed:", err));
 }
+else console.warn("Service worker unavailable on this navigator.");
