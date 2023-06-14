@@ -9,7 +9,15 @@
     <link rel="manifest" href="manifest.json" />
 
     <title>Dev'Coffee PWA</title>
+
+    <script>
+      window.addEventListener('load', () => {
+        if("serviceWorker" in navigator) navigator.serviceWorker.register("/js/serviceWorker.js");
+        else console.warn("Service worker unavailable on your navigator.");
+      })
+    </script>
   </head>
+
   <body>
     <main>
       <nav>
