@@ -45,7 +45,7 @@ Cette application PWA (Progressive Web App) vous permet de tester le mode hors l
 
 - Package `http-server` : Si vous n'avez pas encore installé le package `http-server` globalement, vous pouvez l'installer en exécutant la commande suivante :
 
-  ```
+  ```bash
   npm install -g http-server
   ```
 
@@ -57,7 +57,7 @@ Assurez-vous d'avoir respecté ces prérequis avant de lancer l'application PWA 
 
 ### Fonctionnalitées principales
 
-```
+```js
 /* Ce code vérifie si le navigateur prend en charge les workers de service en vérifiant si la propriété "serviceWorker"
 *existe dans l'objet "navigator". S'il existe, il enregistre un worker de service situé à l'emplacement 
 *"/service-worker.js" et affiche un message dans la console indiquant si l'enregistrement a réussi ou non. 
@@ -72,7 +72,7 @@ if ("serviceWorker" in navigator) {
         });
 }
 ```
-```
+```js
 /**
 * Ce code enregistre un écouteur d'événement pour l'événement "install" sur le service worker. Lorsque
 *le service worker est installé, il ouvrira un cache avec le nom "offline-cache" et ajoutera
@@ -88,7 +88,7 @@ self.addEventListener("install", function (event) {
     );
 });
 ```
-```
+```js
 /**
 * Ce code enregistre un écouteur d'événements pour l'événement "fetch" sur le service worker.
 *Lorsqu'une requête réseau est effectuée, le service worker l'intercepte et essaie de récupérer
