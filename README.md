@@ -58,8 +58,9 @@ Assurez-vous d'avoir respecté ces prérequis avant de lancer l'application PWA 
 ### Test de fonctionnement 
 
 - Sur navigateur:
-utiliser un navigateur en mode navigation privé, accédez aux outils de dev , depuis l'onglet network cliquez sur offline et rechargez la page, vous devriez voir la page "offline.html" avec un fond noir, le titre en blanc et le paragraphe en rouge.
-- Sur mobile récuperez l'adresse fournie par ngrok. En cliquant vous arriverez sur la page index.html affichant un fond blanc et oneline. Passez votre téléphone en mode avion, rechargez la page. Vous devriez voir la page "offline.html" avec un fond noir, le titre en blanc et le paragraphe en rouge.
+    Utilisez un navigateur en mode navigation privée, accédez aux outils de dev , depuis l'onglet network cliquez sur offline et rechargez la page, vous devriez voir la page "offline.html" avec un fond noir, le titre en blanc et le paragraphe en rouge.
+- Sur mobile:
+    Récuperez l'adresse fournie par ngrok. En cliquant vous arriverez sur la page index.html affichant un fond blanc et oneline. Passez votre téléphone en mode avion, rechargez la page. Vous devriez voir la page "offline.html" avec un fond noir, le titre en blanc et le paragraphe en rouge.
 
 ### Remarque
 
