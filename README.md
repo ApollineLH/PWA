@@ -30,9 +30,6 @@ Cette application PWA (Progressive Web App) vous permet de tester le mode hors l
 
 6. Sur votre téléphone mobile, ouvrez le navigateur et entrez l'URL fournie par Ngrok pour accéder à votre application.
 
-7. Une fois que l'application est chargée sur votre téléphone, vous pouvez tester le mode hors ligne en désactivant la connexion Internet sur votre téléphone.
-
-8. Lorsque vous êtes hors ligne, vous devriez voir la page "offline.html" avec un fond noir, le titre en blanc et le paragraphe en rouge.
 
 ### Structure du projet
 
@@ -57,6 +54,12 @@ Cette application PWA (Progressive Web App) vous permet de tester le mode hors l
 - Ngrok (facultatif) : Si vous souhaitez tester l'application sur votre téléphone mobile à l'aide de Ngrok, vous devrez installer Ngrok sur votre machine. Vous pouvez télécharger Ngrok à partir du site officiel (https://ngrok.com) et suivre les instructions d'installation pour votre système d'exploitation.
 
 Assurez-vous d'avoir respecté ces prérequis avant de lancer l'application PWA avec mode hors ligne.
+
+### Test de fonctionnement 
+
+- Sur navigateur:
+utiliser un navigateur en mode navigation privé, accédez aux outils de dev , depuis l'onglet network cliquez sur offline et rechargez la page, vous devriez voir la page "offline.html" avec un fond noir, le titre en blanc et le paragraphe en rouge.
+- Sur mobile récuperez l'adresse fournie par ngrok. En cliquant vous arriverez sur la page index.html affichant un fond blanc et oneline. Passez votre téléphone en mode avion, rechargez la page. Vous devriez voir la page "offline.html" avec un fond noir, le titre en blanc et le paragraphe en rouge.
 
 ### Remarque
 
