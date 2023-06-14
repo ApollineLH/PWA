@@ -55,6 +55,64 @@ Cette application PWA (Progressive Web App) vous permet de tester le mode hors l
 
 Assurez-vous d'avoir respecté ces prérequis avant de lancer l'application PWA avec mode hors ligne.
 
+### Fonctionnalitées principales
+
+```
+/* Ce code vérifie si le navigateur prend en charge les workers de service en vérifiant si la propriété "serviceWorker"
+*existe dans l'objet "navigator". S'il existe, il enregistre un worker de service situé à l'emplacement 
+*"/service-worker.js" et affiche un message dans la console indiquant si l'enregistrement a réussi ou non. 
+*/
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js")
+        .then(function (registration) {
+            console.log("Service Worker registered with scope:",
+                registration.scope);
+        }).catch(function (err) {
+            console.log("Service worker registration failed:", err);
+        });
+}
+```
+```
+/**
+* Ce code enregistre un écouteur d'événement pour l'événement "install" sur le service worker. Lorsque
+*le service worker est installé, il ouvrira un cache avec le nom "offline-cache" et ajoutera
+*les ressources répertoriées dans le tableau "resourcesToCache" au cache. La méthode "waitUntil" garantit que
+*le processus d'installation n'est considéré comme terminé que lorsque toutes les ressources ont été ajoutées au
+*cache.
+*/
+self.addEventListener("install", function (event) {
+    event.waitUntil(
+        caches.open(cacheName).then(function (cache) {
+            return cache.addAll(resourcesToCache);
+        })
+    );
+});
+
+/**
+* Ce code enregistre un écouteur d'événements pour l'événement "fetch" sur le service worker.
+*Lorsqu'une requête réseau est effectuée, le service worker l'intercepte et essaie de récupérer
+*la ressource demandée depuis le réseau. Si la requête réseau échoue par exemple,
+*en raison d'une absence de connexion Internet), le service worker essaie de récupérer la ressource depuis 
+*le cache en utilisant la méthode `caches.match()`. Si la ressource est trouvée dans le cache, elle est renvoyée au navigateur.
+*Si la ressource n'est pas trouvée dans le cache, le service worker renvoie la page "offline.html", 
+*qui fait partie des ressources précédemment mises en cache lors du processus d'installation. 
+*/
+self.addEventListener("fetch", function (event) {
+    event.respondWith(
+        fetch(event.request).catch(function () {
+            return caches.match(event.request).then(function (response) {
+                if (response) {
+                    return response;
+                } else {
+                    return caches.match("offline.html");
+                }
+            });
+        })
+    );
+});
+```
+
+
 ### Test de fonctionnement 
 
 - Sur navigateur:
@@ -65,4 +123,11 @@ Assurez-vous d'avoir respecté ces prérequis avant de lancer l'application PWA 
 ### Remarque
 
 - Pour tester le mode hors ligne, assurez-vous que votre téléphone est réellement hors ligne(mode avion), car le mode hors ligne ne fonctionnera pas avec Ngrok, qui simule une connexion en ligne.
+
+### Documentation utilisée
+
+[Vidéos](https://www.youtube.com/watch?v=WKFezD292Dw).
+[The service worker life cycle](https://web.dev/service-worker-lifecycle/).
+[Offline first pwa](https://schoovaertswout.medium.com/offline-first-with-progressive-web-apps-part-1-3-102e61992567).
+
 

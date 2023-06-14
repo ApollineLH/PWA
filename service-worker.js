@@ -1,4 +1,4 @@
-//Apolline LEHIRITTE
+//polline LEHIRITTE
 
 var cacheName = "offline-cache";
 
@@ -7,11 +7,13 @@ var resourcesToCache = [
     "css/style.css",
 ];
 
-/* This code is registering an event listener for the "install" event on the service worker. When the
-service worker is installed, it will open a cache with the name "offline-cache" and add the
-resources listed in the "resourcesToCache" array to the cache. The "waitUntil" method ensures that
-the installation process is not considered complete until all the resources have been added to the
-cache. */
+/**
+* Ce code enregistre un écouteur d'événement pour l'événement "install" sur le service worker. Lorsque
+*le service worker est installé, il ouvrira un cache avec le nom "offline-cache" et ajoutera
+*les ressources répertoriées dans le tableau "resourcesToCache" au cache. La méthode "waitUntil" garantit que
+*le processus d'installation n'est considéré comme terminé que lorsque toutes les ressources ont été ajoutées au
+*cache.
+*/
 self.addEventListener("install", function (event) {
     event.waitUntil(
         caches.open(cacheName).then(function (cache) {
@@ -20,13 +22,15 @@ self.addEventListener("install", function (event) {
     );
 });
 
-/* This code is registering an event listener for the "fetch" event on the service worker. When a
-network request is made, the service worker will intercept it and try to fetch the requested
-resource from the network. If the network request fails (e.g. due to a lack of internet connection),
-the service worker will try to retrieve the resource from the cache using the `caches.match()`
-method. If the resource is found in the cache, it will be returned to the browser. If the resource
-is not found in the cache, the service worker will return the "offline.html" page, which is one of
-the resources that was previously cached during the installation process. */
+/**
+* Ce code enregistre un écouteur d'événements pour l'événement "fetch" sur le service worker.
+*Lorsqu'une requête réseau est effectuée, le service worker l'intercepte et essaie de récupérer
+*la ressource demandée depuis le réseau. Si la requête réseau échoue par exemple,
+*en raison d'une absence de connexion Internet), le service worker essaie de récupérer la ressource depuis 
+*le cache en utilisant la méthode `caches.match()`. Si la ressource est trouvée dans le cache, elle est renvoyée au navigateur.
+*Si la ressource n'est pas trouvée dans le cache, le service worker renvoie la page "offline.html", 
+*qui fait partie des ressources précédemment mises en cache lors du processus d'installation. 
+*/
 self.addEventListener("fetch", function (event) {
     event.respondWith(
         fetch(event.request).catch(function () {
