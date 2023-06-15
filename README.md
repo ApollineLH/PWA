@@ -37,7 +37,7 @@ Cette application PWA (Progressive Web App) vous permet de tester le mode hors l
 - `offline.html` : Page de secours à afficher lorsque l'utilisateur est hors ligne.
 - `css/style.css` : Fichier CSS contenant les styles de l'application.
 - `js/app.js` : Fichier JavaScript qui enregistre le Service Worker et gère les fonctionnalités de l'application.
-- `service-worker.js` : Fichier du Service Worker qui met en cache les ressources et renvoie la page de secours en cas de déconnexion.
+- `js/service-worker.js` : Fichier du Service Worker qui met en cache les ressources et renvoie la page de secours en cas de déconnexion.
 
 ### Prérequis
 
@@ -72,7 +72,7 @@ if ("serviceWorker" in navigator) {
         });
 }
 ```
-service-worker.js
+js/service-worker.js
 ```js
 /**
 * Ce code enregistre un écouteur d'événement pour l'événement "install" sur le service worker. Lorsque
@@ -89,7 +89,7 @@ self.addEventListener("install", function (event) {
     );
 });
 ```
-service-worker.js
+js/service-worker.js
 ```js
 /**
 * Ce code enregistre un écouteur d'événements pour l'événement "fetch" sur le service worker.
