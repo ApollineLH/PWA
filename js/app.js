@@ -5,7 +5,7 @@
 *"/service-worker.js" et affiche un message dans la console indiquant si l'enregistrement a réussi ou non. 
 */
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./js/service-worker.js")
+    navigator.serviceWorker.register("/service-worker.js")
         .then(function (registration) {
             console.log("Service Worker registered with scope:",
                 registration.scope);
