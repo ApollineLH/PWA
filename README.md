@@ -56,7 +56,7 @@ Cette application PWA (Progressive Web App) vous permet de tester le mode hors l
 Assurez-vous d'avoir respecté ces prérequis avant de lancer l'application PWA avec mode hors ligne.
 
 ### Fonctionnalitées principales
-
+js/app.js
 ```js
 /* Ce code vérifie si le navigateur prend en charge les workers de service en vérifiant si la propriété "serviceWorker"
 *existe dans l'objet "navigator". S'il existe, il enregistre un worker de service situé à l'emplacement 
@@ -72,6 +72,7 @@ if ("serviceWorker" in navigator) {
         });
 }
 ```
+service-worker.js
 ```js
 /**
 * Ce code enregistre un écouteur d'événement pour l'événement "install" sur le service worker. Lorsque
@@ -88,6 +89,7 @@ self.addEventListener("install", function (event) {
     );
 });
 ```
+service-worker.js
 ```js
 /**
 * Ce code enregistre un écouteur d'événements pour l'événement "fetch" sur le service worker.
